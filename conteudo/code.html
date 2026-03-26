@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clean Animation Pack - Premiere Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#007AFF", // Apple Blue
+              "background": "#000000",
+              "surface": "#0a0a0a",
+              "surface-container": "#161617",
+              "surface-container-high": "#1c1c1e",
+              "surface-container-highest": "#2c2c2e",
+              "on-surface": "#ffffff",
+              "on-surface-variant": "#a1a1a6",
+              "outline": "#333333",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; background-color: #000000; color: #ffffff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background: rgba(0, 0, 0, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .text-balance { text-wrap: balance; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .apple-card { background: #161617; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.3s ease; }
+        .apple-card:hover { border-color: rgba(255, 255, 255, 0.15); background: #1c1c1e; }
+        .gradient-text { background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav transition-opacity duration-200">
+<div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white" data-icon="menu">menu</span>
+<span class="text-lg font-bold tracking-tight text-white">Clean Animation Pack</span>
+</div>
+<a class="bg-primary text-on-primary px-5 py-2 rounded-full text-sm font-semibold hover:brightness-110 transition-all active:scale-95 duration-200" href="#offer">
+            Get the Pack
+        </a>
+</div>
+</nav>
+<main class="pt-20">
+<!-- 1. Hero Section -->
+<section class="px-6 py-20 text-center bg-background overflow-hidden">
+<div class="max-w-4xl mx-auto">
+<h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 gradient-text">15 animações profissionais para <span class="text-primary">encarecer os seus vídeos</span></h1>
+<p class="text-xl md:text-2xl text-on-surface-variant mb-10 max-w-2xl mx-auto font-medium">
+                O único pack de textos animados para Adobe Premiere Pro com estilo Apple — clean, elegante e sofisticado — que faz seu vídeo parecer que custou R$5.000 de produção.
+            </p>
+<div class="flex flex-col gap-4 items-center">
+<a class="bg-primary text-on-primary px-10 py-5 rounded-full text-lg font-bold shadow-[0_0_40px_rgba(0,122,255,0.3)] hover:brightness-110 active:scale-95 transition-all" href="#offer">
+                    Quero o Pack Agora →
+                </a><div class="mt-8 flex items-center justify-center">
+<div class="bg-[#0a0a0a] border border-white/5 rounded-2xl p-4 flex items-center gap-4 shadow-2xl">
+<div class="flex -space-x-3">
+<div class="w-12 h-12 rounded-full border-2 border-[#0a0a0a] overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAAeM58TTGUY5nFFleBJLPl21LwTbCOPkg91XoIN3GcyjWuOY3jWNQiEJiB3JEfyDDk5_Q8S1keuCPirTW0s3aBU0AmH2xiWQ9ogC56d76NCg30Zq-A8foSu_WMytPox5AVabuQFXRXQRdbZ_e3kg_DuP8x-aDBFWGG5EoMxtwBRdMuQk5HTP-y5dpr3m-sGE-6XorWXZELm1WKuOnZmYsV3FRboh1QK0iLoSOMEVpKGQNiXlT8IZbmbVwCtUSNzfbrY3VMc2TzWg"/>
+</div>
+<div class="w-12 h-12 rounded-full border-2 border-[#0a0a0a] overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1wj-E3IwdtHCEWePEbENmZSawkLov3Mo-fYOxL1L2hbl8TDpDDyiEmeQNg6_AjKMsYJZjdgTGCWwTz4tDtiYZAupumN1Dk76xWBib69TMitAhW7x7hI1ynxJrt46LSLpmbenJAZHC1f2dO2VmZFkemn2JEuoEDoITqvyNQekz2FTGmZfbfZUS-O0InjQe6J1Oqfj7cVFqYGltEpZZwllqGx2XHO5IU9LeqDpeBMixJo5KNFsicr_gWd7Q60Vag0xnEalFIn6ZJPE"/>
+</div>
+<div class="w-12 h-12 rounded-full border-2 border-[#0a0a0a] overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaqirW-8RjWCUf-JXmaR_jihxGAIOMBhFDifBiwIn2_UyiTg5QQKDYk_ssJzh5HVu9VCa1K6iehOlgPVcA29ZmjT6-S8X3dpmTcDrdJLeRjnn23ZS6FuPcdnyil3qCZuyqhualPxx2s5Zpuk531xXsg_lgAtVii6x1NRHY6EaVIF3MCdwcK9ksOeG51do1gySYu57UpqdyV6suoL_1uzSVlccpyITzvd7vuQmohtM4P-4aDK-LXTsaxJupV7julNaa1uoDfOqcMoI"/>
+</div>
+</div>
+<div class="text-left">
+<div class="flex items-center gap-2">
+<p class="font-bold text-white text-base">Aprovado por editores de vídeo</p>
+<span class="material-symbols-outlined text-[#F26522] text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-xs font-bold tracking-widest text-on-surface-variant uppercase">Feedbacks ao vivo</p>
+</div>
+</div>
+</div>
+<span class="text-sm font-medium text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                    Acesso vitalício e imediato
+                </span>
+</div>
+<div class="mt-16 relative">
+<div class="rounded-2xl overflow-hidden apple-card shadow-2xl aspect-video max-w-5xl mx-auto">
+<img alt="Premiere Pro Interface" class="w-full h-full object-cover opacity-80" data-alt="Professional cinematic workstation showing Adobe Premiere Pro interface with high-end motion graphics being edited on a large 4K monitor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAAeM58TTGUY5nFFleBJLPl21LwTbCOPkg91XoIN3GcyjWuOY3jWNQiEJiB3JEfyDDk5_Q8S1keuCPirTW0s3aBU0AmH2xiWQ9ogC56d76NCg30Zq-A8foSu_WMytPox5AVabuQFXRXQRdbZ_e3kg_DuP8x-aDBFWGG5EoMxtwBRdMuQk5HTP-y5dpr3m-sGE-6XorWXZELm1WKuOnZmYsV3FRboh1QK0iLoSOMEVpKGQNiXlT8IZbmbVwCtUSNzfbrY3VMc2TzWg"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Pain Section -->
+<section class="px-6 py-24 bg-background text-center">
+<div class="max-w-2xl mx-auto">
+<h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white leading-snug mb-8">
+                Você já assistiu um vídeo simples e pensou <br/>
+<span class="text-primary italic">"como ele fez isso parecer tão caro?"</span>
+</h2>
+<div class="space-y-6 text-lg text-on-surface-variant text-left leading-relaxed">
+<p>Não era uma produção de agência. Não tinha câmera cara, iluminação profissional nem equipe. Era um vídeo simples — igual ao seu.</p>
+<p>A diferença? As animações. Enquanto o vídeo dele tinha textos que entravam com elegância, timing preciso e um visual que passava autoridade imediata — o seu tinha o mesmo título parado, sem movimento, sem personalidade.</p>
+<p>E você sabe disso. Porque você passou 40 minutos tentando criar uma animação no Premiere — ajustando opacidade, mexendo em curvas, errando, desfazendo, errando de novo — e o resultado ainda parecia amador.</p>
+<p>Uma animação elegante não é detalhe. É o que separa um vídeo que parece caro de um vídeo que parece que foi editado em 2018. E agora existe um jeito de ter isso em 30 segundos.</p>
+</div>
+</div>
+</section>
+<!-- 3. What is the Pack -->
+<section class="px-6 py-24 bg-surface">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+<div>
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">A Evolução da sua Edição</span>
+<h2 class="text-4xl font-extrabold tracking-tight mb-6">Clean Animation Pack são 15 templates de títulos animados prontos.</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-8">
+                    Cada template é um arquivo .mogrt editável. Você abre no Premiere, troca o texto, ajusta a cor se quiser e exporta. Sem After Effects. Sem plugins pagos. Sem curva de aprendizado.
+                </p>
+<div class="flex gap-4">
+<div class="apple-card p-4 rounded-xl flex-1">
+<span class="material-symbols-outlined text-primary text-3xl mb-2" data-icon="auto_awesome">auto_awesome</span>
+<h4 class="font-bold text-white">Elegância</h4>
+</div>
+<div class="apple-card p-4 rounded-xl flex-1">
+<span class="material-symbols-outlined text-primary text-3xl mb-2" data-icon="speed">speed</span>
+<h4 class="font-bold text-white">Velocidade</h4>
+</div>
+</div>
+</div>
+<div class="relative aspect-square rounded-2xl overflow-hidden border border-white/5">
+<img alt="Abstract motion" class="w-full h-full object-cover grayscale opacity-60" data-alt="Elegant abstract 3D light streaks in shades of blue and white moving smoothly across a dark grey background, representing motion and speed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1wj-E3IwdtHCEWePEbENmZSawkLov3Mo-fYOxL1L2hbl8TDpDDyiEmeQNg6_AjKMsYJZjdgTGCWwTz4tDtiYZAupumN1Dk76xWBib69TMitAhW7x7hI1ynxJrt46LSLpmbenJAZHC1f2dO2VmZFkemn2JEuoEDoITqvyNQekz2FTGmZfbfZUS-O0InjQe6J1Oqfj7cVFqYGltEpZZwllqGx2XHO5IU9LeqDpeBMixJo5KNFsicr_gWd7Q60Vag0xnEalFIn6ZJPE"/>
+</div>
+</div>
+</section>
+<!-- 4. Benefits -->
+<section class="px-6 py-24 bg-background">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold tracking-tight mb-4">O que muda quando você para de criar do zero</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Benefit Cards -->
+<div class="p-8 apple-card rounded-2xl">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="bolt">bolt</span>
+<h3 class="text-xl font-bold mb-3 text-white">Economize tempo</h3>
+<p class="text-on-surface-variant">Cada template é plug-and-play. 4 vídeos por mês = 2 horas de volta na sua semana.</p>
+</div>
+<div class="p-8 apple-card rounded-2xl">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="palette">palette</span>
+<h3 class="text-xl font-bold mb-3 text-white">Visual Profissional</h3>
+<p class="text-on-surface-variant">Feito com as mesmas técnicas que motion designers cobram R$300/hora para fazer.</p>
+</div>
+<div class="p-8 apple-card rounded-2xl">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="workspace_premium">workspace_premium</span>
+<h3 class="text-xl font-bold mb-3 text-white">Pareça Caro</h3>
+<p class="text-on-surface-variant">O espectador não sabe o nome do efeito. Ele só sente que aquele vídeo é profissional.</p>
+</div>
+<div class="p-8 apple-card rounded-2xl">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="extension_off">extension_off</span>
+<h3 class="text-xl font-bold mb-3 text-white">Estilo Consistente</h3>
+<p class="text-on-surface-variant">Consistência visual é o que separa canais amadores de canais que parecem marca.</p>
+</div>
+<div class="p-8 apple-card rounded-2xl">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="history_edu">history_edu</span>
+<h3 class="text-xl font-bold mb-3 text-white">Qualquer Nicho</h3>
+<p class="text-on-surface-variant">Neutros o suficiente para qualquer projeto, específicos para não ser genérico.</p>
+</div>
+<div class="p-8 apple-card rounded-2xl">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="update">update</span>
+<h3 class="text-xl font-bold mb-3 text-white">Acesso Vitalício</h3>
+<p class="text-on-surface-variant">Compra uma vez, usa para sempre. Sem assinaturas, sem freelancers.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. How it Works -->
+<section class="px-6 py-24 bg-surface-container text-on-surface">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-4xl font-bold mb-16">Três passos. Menos de 5 minutos.</h2>
+<div class="grid md:grid-cols-3 gap-12">
+<div class="space-y-4">
+<div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto text-2xl font-bold text-white shadow-lg">1</div>
+<h3 class="text-xl font-bold text-white">Instala</h3>
+<p class="text-on-surface-variant">Baixa os arquivos e importa os .mogrt no painel Essential Graphics do Premiere Pro.</p>
+</div>
+<div class="space-y-4">
+<div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto text-2xl font-bold text-white shadow-lg">2</div>
+<h3 class="text-xl font-bold text-white">Edita</h3>
+<p class="text-on-surface-variant">Troca o texto pelo seu e ajusta a cor se quiser. Tudo dentro do Premiere.</p>
+</div>
+<div class="space-y-4">
+<div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto text-2xl font-bold text-white shadow-lg">3</div>
+<h3 class="text-xl font-bold text-white">Usa</h3>
+<p class="text-on-surface-variant">Pronto! Seu vídeo acabou de ficar 10x mais profissional em fração de segundos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Templates Showcase -->
+<section class="py-24 overflow-hidden bg-background">
+<div class="px-6 max-w-7xl mx-auto mb-12">
+<h2 class="text-4xl font-bold tracking-tight text-white">15 Animações. Organizadas por estilo.</h2>
+</div>
+<div class="flex overflow-x-auto gap-8 px-6 pb-12 no-scrollbar snap-x">
+<!-- Template Card -->
+<div class="min-w-[320px] md:min-w-[450px] snap-center apple-card rounded-3xl p-4">
+<div class="aspect-video bg-surface-container-highest rounded-2xl mb-6 overflow-hidden">
+<img alt="Clean Templates" class="w-full h-full object-cover opacity-70" data-alt="Close up of a minimalist typography design on a clean dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaqirW-8RjWCUf-JXmaR_jihxGAIOMBhFDifBiwIn2_UyiTg5QQKDYk_ssJzh5HVu9VCa1K6iehOlgPVcA29ZmjT6-S8X3dpmTcDrdJLeRjnn23ZS6FuPcdnyil3qCZuyqhualPxx2s5Zpuk531xXsg_lgAtVii6x1NRHY6EaVIF3MCdwcK9ksOeG51do1gySYu57UpqdyV6suoL_1uzSVlccpyITzvd7vuQmohtM4P-4aDK-LXTsaxJupV7julNaa1uoDfOqcMoI"/>
+</div>
+<div class="px-4 pb-4">
+<h3 class="text-2xl font-bold mb-2 text-white">Clean &amp; Simples</h3>
+<p class="text-on-surface-variant">Animações minimalistas de entrada suave para quem quer elegância sem exagero.</p>
+</div>
+</div>
+<!-- Template Card -->
+<div class="min-w-[320px] md:min-w-[450px] snap-center apple-card rounded-3xl p-4">
+<div class="aspect-video bg-surface-container-highest rounded-2xl mb-6 overflow-hidden">
+<img alt="Bold Templates" class="w-full h-full object-cover opacity-70" data-alt="High-contrast graphic design with thick typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSnNC4PIym_RjHeq4C5S7oIKW-l9gmnI566KTtGP4KtP5QW2Gpfi2hh-weVdZLV-PLN9yKXrpcS7Mt15F-e0HgE0awbJZgn02khRK3yWyVHn6ZH2oghhQFQIPkIlwJp7sLAyx4VgKhQiX5cbdUP4fuSx0tm7mfftzYMhbZob_0-vU6uHecWSNBhfh4yY_a6J33VcwdbPUeRXm2pR5Q3hFqq4XyVbfMUd2P09DUb5-XjEDJS6g53tDUtwCfBrhZO4Dct48WEsjVhoM"/>
+</div>
+<div class="px-4 pb-4">
+<h3 class="text-2xl font-bold mb-2 text-white">Bold Impact</h3>
+<p class="text-on-surface-variant">Animações com peso e presença para momentos que precisam de máxima atenção.</p>
+</div>
+</div>
+<!-- Template Card -->
+<div class="min-w-[320px] md:min-w-[450px] snap-center apple-card rounded-3xl p-4">
+<div class="aspect-video bg-surface-container-highest rounded-2xl mb-6 overflow-hidden">
+<img alt="Varied Templates" class="w-full h-full object-cover opacity-70" data-alt="Abstract fluid shapes in motion with dark gradients" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzxDQLoKq-il1uon7aHOpM-ATqwnUV1iOf1VQegxfMQV24z03UE9I-9_EY1qjwJVOaFAhHhS5IAA9pR3AKAKgzYoWh8HdigcjHcrHmLmpM_kVlJs08Rvul6BlQPXkQYIVO5Kulgps8LukjtN5bFN2u1o6GsY3yTwzzCnsQ7qVIh5auXL6VNNEW6UUsxzaueYhyx5PjOOeRt_9ArFreCyUgZbbM1W8Yp9O58ghClgeRETE8T8wlKrPWgpGdCAkNn-7rctFAmjxXnkw"/>
+</div>
+<div class="px-4 pb-4">
+<h3 class="text-2xl font-bold mb-2 text-white">Kinetic &amp; Variados</h3>
+<p class="text-on-surface-variant">Texto em sequência e transições funcionais para qualquer contexto narrativo.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Social Proof -->
+<section class="px-6 py-24 bg-surface">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-3xl font-bold text-center mb-16 text-white">O que editores estão dizendo</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="apple-card p-8 rounded-2xl">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic mb-6 text-on-surface">"Eu editava um vídeo de 10 minutos em 4 horas. Hoje faço em 2h30. Parei de criar animação do zero e o resultado ainda ficou muito melhor."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest"></div>
+<div>
+<p class="font-bold text-sm text-white">Felipe Andrade</p>
+<p class="text-xs text-on-surface-variant">YouTuber</p>
+</div>
+</div>
+</div>
+<div class="apple-card p-8 rounded-2xl">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic mb-6 text-on-surface">"Meu canal tinha um visual amador. Depois do Pack, as pessoas começaram a comentar que meu conteúdo parecia de um canal grande."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest"></div>
+<div>
+<p class="font-bold text-sm text-white">Camila Torres</p>
+<p class="text-xs text-on-surface-variant">Social Media Manager</p>
+</div>
+</div>
+</div>
+<div class="apple-card p-8 rounded-2xl">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic mb-6 text-on-surface">"Com o Clean Pack eu abro o template, troco o texto e está pronto. O vídeo fica com aquele visual polished em fração do tempo."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest"></div>
+<div>
+<p class="font-bold text-sm text-white">Lucas Mendonça</p>
+<p class="text-xs text-on-surface-variant">Editor Freelancer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. Offer/Price Section -->
+<section class="px-6 py-24 bg-background" id="offer">
+<div class="max-w-4xl mx-auto apple-card rounded-[2.5rem] p-8 md:p-16 shadow-[0_30px_60px_rgba(0,0,0,0.5)] border-primary/20 text-center">
+<h2 class="text-4xl font-extrabold mb-4 text-white">Tudo que você precisa em um único pack.</h2>
+<p class="text-on-surface-variant text-lg mb-12">Oportunidade única para profissionalizar seu canal ou agência.</p>
+<ul class="space-y-4 mb-12 text-left max-w-sm mx-auto">
+<li class="flex items-center gap-3 font-medium text-white">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    15 Templates MOGRT (Clean &amp; Bold)
+                </li>
+<li class="flex items-center gap-3 font-medium text-white">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Bônus: Guia de Tipografia e Cores
+                </li>
+<li class="flex items-center gap-3 font-medium text-white">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Acesso Vitalício + Atualizações
+                </li>
+<li class="flex items-center gap-3 font-medium text-white">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Suporte e Tutorial Completo
+                </li>
+</ul>
+<div class="mb-12">
+<span class="text-on-surface-variant line-through text-xl block">De R$ 849,00</span>
+<div class="flex items-center justify-center gap-2">
+<span class="text-2xl font-bold self-start mt-2 text-white">R$</span>
+<span class="text-7xl font-extrabold tracking-tighter text-white">97</span>
+<span class="text-2xl font-bold self-end mb-3 text-white">,00</span>
+</div>
+<p class="text-on-surface-variant mt-2 font-medium">Pagamento único. Sem mensalidades.</p>
+</div>
+<button class="w-full bg-primary text-on-primary py-6 rounded-full text-xl font-bold shadow-xl shadow-primary/20 hover:brightness-110 active:scale-95 transition-all mb-8">
+                Quero Aproveitar o Desconto →
+            </button>
+<div class="flex flex-col md:flex-row items-center justify-center gap-8 pt-8 border-t border-white/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="verified_user">verified_user</span>
+<div class="text-left">
+<p class="font-bold text-sm leading-tight text-white">Garantia Incondicional</p>
+<p class="text-xs text-on-surface-variant">7 dias para testar ou seu dinheiro de volta.</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="lock">lock</span>
+<div class="text-left">
+<p class="font-bold text-sm leading-tight text-white">Checkout Seguro</p>
+<p class="text-xs text-on-surface-variant">Criptografia de ponta a ponta Apple-level.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. FAQ Section -->
+<section class="px-6 py-24 bg-surface" id="faq">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-3xl font-bold mb-12 text-center text-white">Perguntas Frequentes</h2>
+<div class="space-y-4">
+<div class="apple-card p-6 rounded-2xl">
+<h3 class="font-bold flex justify-between items-center text-white">
+                        Preciso do After Effects instalado?
+                        <span class="material-symbols-outlined">expand_more</span>
+</h3>
+<p class="mt-4 text-on-surface-variant">Não. Os templates são arquivos .mogrt que funcionam nativamente dentro do Premiere Pro.</p>
+</div>
+<div class="apple-card p-6 rounded-2xl">
+<h3 class="font-bold flex justify-between items-center text-white">
+                        Qual versão do Premiere Pro eu preciso?
+                        <span class="material-symbols-outlined">expand_more</span>
+</h3>
+<p class="mt-4 text-on-surface-variant">Premiere Pro CC 2019 ou superior. Se você tem assinatura ativa da Adobe, está coberto.</p>
+</div>
+<div class="apple-card p-6 rounded-2xl">
+<h3 class="font-bold flex justify-between items-center text-white">
+                        Posso usar em projetos de clientes?
+                        <span class="material-symbols-outlined">expand_more</span>
+</h3>
+<p class="mt-4 text-on-surface-variant">Sim. A licença é comercial irrestrita. Use nos seus projetos e nos dos seus clientes sem restrições.</p>
+</div>
+<div class="apple-card p-6 rounded-2xl">
+<h3 class="font-bold flex justify-between items-center text-white">
+                        As animações são personalizáveis?
+                        <span class="material-symbols-outlined">expand_more</span>
+</h3>
+<p class="mt-4 text-on-surface-variant">Totalmente. Você edita texto, cor e tamanho dentro do painel Essential Graphics. Sem After Effects, sem expressões.</p>
+</div>
+<div class="apple-card p-6 rounded-2xl">
+<h3 class="font-bold flex justify-between items-center text-white">
+                        E se eu não gostar?
+                        <span class="material-symbols-outlined">expand_more</span>
+</h3>
+<p class="mt-4 text-on-surface-variant">7 dias de garantia total. Manda um email, devolvo 100%. Sem questionamentos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 10. Final CTA -->
+<section class="px-6 py-32 bg-background text-center">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8 text-white">Você vai editar o próximo vídeo do mesmo jeito...?</h2>
+<p class="text-xl text-on-surface-variant mb-12">Cada vídeo publicado com visual amador é um vídeo que convence menos, retém menos e cresce menos.</p>
+<a class="inline-block bg-white text-black px-10 py-5 rounded-full text-xl font-bold hover:scale-105 transition-transform active:scale-95 shadow-2xl" href="#offer">
+                Garantir Meu Acesso Agora
+            </a>
+<p class="text-on-surface-variant mt-6 text-sm">Acesso imediato · Garantia de 7 dias · Sem assinatura</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-6 bg-surface">
+<div class="max-w-7xl mx-auto flex flex-col gap-8 text-center">
+<div class="font-bold text-white text-xl">Clean Animation Pack</div>
+<div class="flex flex-wrap justify-center gap-6 text-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+</div>
+<p class="text-sm text-on-surface-variant">
+            © 2024 Clean Animation Pack. Designed for Premiere Pro.
+        </p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 glass-nav z-50 rounded-t-3xl">
+<a class="flex flex-col items-center justify-center text-primary font-bold scale-110" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-medium uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-white transition-all duration-300" href="#offer">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-[10px] font-medium uppercase tracking-widest mt-1">Pack</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-white transition-all duration-300" href="#offer">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[10px] font-medium uppercase tracking-widest mt-1">Preço</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-white transition-all duration-300" href="#faq">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="text-[10px] font-medium uppercase tracking-widest mt-1">FAQ</span>
+</a>
+</nav>
+</body></html>
