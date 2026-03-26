@@ -461,18 +461,18 @@
     transform-origin: center center;
   }
 
-  /* quando o track está em hover: todos encolhem 30% */
-  #tslTrack:hover .tsl-inner {
-    transform: scale(0.76);
-    opacity: 0.55;
-  }
-
-  /* o card que está com hover: cresce 30% e fica 100% opaco */
-  #tslTrack .tsl-card:hover .tsl-inner {
-    transform: scale(1.05);
-    opacity: 1;
-    position: relative;
-    z-index: 20;
+  /* hover scale: SOMENTE em desktop com mouse real (não dispara em touch) */
+  @media (hover: hover) and (pointer: fine) {
+    #tslTrack:hover .tsl-inner {
+      transform: scale(0.76);
+      opacity: 0.55;
+    }
+    #tslTrack .tsl-card:hover .tsl-inner {
+      transform: scale(1.05);
+      opacity: 1;
+      position: relative;
+      z-index: 20;
+    }
   }
 
   /* ---- MOBILE NAV ---- */
@@ -506,12 +506,6 @@
     /* Oferta: vídeo empilhado no mobile */
     .offer-vid-wrap { min-height: 240px !important; max-height: 320px; }
     .offer-vid-wrap video { max-height: 320px; }
-  }
-
-  /* Testimonial hover: apenas em dispositivos com mouse */
-  @media (hover: none) {
-    #tslTrack:hover .tsl-inner { transform: none !important; opacity: 1 !important; }
-    #tslTrack .tsl-card:hover .tsl-inner { transform: none !important; opacity: 1 !important; }
   }
 
   /* Botão full-width: texto menor no mobile para não cortar */
@@ -1440,13 +1434,25 @@
       go(current);
     }
 
-    // swipe touch
-    let tStartX = 0;
-    track.addEventListener('touchstart', e => { tStartX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - tStartX;
-      if (dx < -40) go(current + 1);
-      if (dx >  40) go(current - 1);
+    // swipe touch — escuta no wrapper para capturar gesto em qualquer ponto
+    let tStartX = 0, tCurX = 0, isSwiping = false;
+
+    wrap.addEventListener('touchstart', e => {
+      tStartX = tCurX = e.touches[0].clientX;
+      isSwiping = true;
+    }, { passive: true });
+
+    wrap.addEventListener('touchmove', e => {
+      if (!isSwiping) return;
+      tCurX = e.touches[0].clientX;
+    }, { passive: true });
+
+    wrap.addEventListener('touchend', () => {
+      if (!isSwiping) return;
+      isSwiping = false;
+      const dx = tCurX - tStartX;
+      if (dx < -30) go(current + 1);
+      else if (dx > 30) go(current - 1);
     });
 
     window.addEventListener('resize', layout);
