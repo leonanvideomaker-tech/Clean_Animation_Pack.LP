@@ -56,7 +56,14 @@
     pointer-events: none;
     -webkit-user-select: none;
     user-select: none;
+    -webkit-touch-callout: none;
   }
+  /* Esconde controles nativos do Safari */
+  video::-webkit-media-controls { display: none !important; }
+  video::-webkit-media-controls-enclosure { display: none !important; }
+  video::-webkit-media-controls-panel { display: none !important; }
+  video::-webkit-media-controls-play-button { display: none !important; }
+  video::-webkit-media-controls-start-playback-button { display: none !important; }
 
   /* ---- GLASS NAV ---- */
   .glass-nav {
@@ -1336,6 +1343,10 @@
         card.style.transition = 'transform 0.45s cubic-bezier(0.23,0.86,0.39,0.96), opacity 0.3s ease';
         card.style.transform  = `translate(${offset}px, ${offset}px) rotate(${rot}deg) scale(${scale})`;
         card.style.opacity    = pos > 2 ? '0' : '1';
+
+        // Retoma vídeo do card que ficou no topo (Safari pausa vídeos ocultos)
+        const vid = card.querySelector('video');
+        if (vid) { vid.muted = true; if (pos === 0 && vid.paused) vid.play().catch(() => {}); }
       });
 
       dots.forEach((d, i) => {
@@ -1473,17 +1484,39 @@
     layout();
   })();
 
-  // ---- AUTOPLAY FORÇADO EM TODOS OS VÍDEOS ----
-  // Garante play mesmo em browsers que bloqueiam autoplay fora do viewport
+  // ---- AUTOPLAY FORÇADO — compatível com Safari iOS ----
   const allVideos = document.querySelectorAll('video');
+
+  function tryPlay(v) {
+    if (!v) return;
+    v.muted = true;
+    v.loop  = true;
+    if (v.paused) v.play().catch(() => {});
+  }
+  function tryPlayAll() {
+    allVideos.forEach(tryPlay);
+  }
+
+  // Tentativa inicial
   allVideos.forEach(v => {
     v.muted = true;
     v.loop  = true;
     v.play().catch(() => {});
   });
+
+  // Safari pausa vídeos ao trocar de aba — retoma ao voltar
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) tryPlayAll();
+  });
+
+  // Safari iOS às vezes precisa de um toque para liberar mídia
+  // Tentamos retomar em todo touchstart sem bloquear o gesto
+  document.addEventListener('touchstart', tryPlayAll, { passive: true });
+
+  // Retoma quando cada vídeo entra no viewport (scroll)
   const vidObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.play().catch(() => {});
+      if (entry.isIntersecting) tryPlay(entry.target);
     });
   }, { threshold: 0.1 });
   allVideos.forEach(v => vidObserver.observe(v));
