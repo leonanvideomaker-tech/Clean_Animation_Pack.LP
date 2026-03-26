@@ -51,6 +51,13 @@
     overflow-x: hidden;
   }
 
+  /* Vídeos: sem controles, sem interação, sem pausa */
+  video {
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
   /* ---- GLASS NAV ---- */
   .glass-nav {
     backdrop-filter: blur(20px);
@@ -595,7 +602,7 @@
           <span class="text-xs text-text-soft ml-2">Template Bounce</span>
         </div>
         <div class="bg-black overflow-hidden" style="aspect-ratio: 16/9;">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
+          <video autoplay loop muted playsinline disablepictureinpicture class="w-full h-full object-cover">
             <source src="videos/bounce.mp4" type="video/mp4">
           </video>
         </div>
@@ -663,7 +670,7 @@
               <div class="dot bg-[#27c93f]"></div>
               <span class="text-xs text-text-soft ml-2">Preview</span>
             </div>
-            <video autoplay loop muted playsinline
+            <video autoplay loop muted playsinline disablepictureinpicture
                    class="w-full block"
                    style="aspect-ratio:9/16;object-fit:cover;">
               <source src="videos/video final.mp4" type="video/mp4">
@@ -720,7 +727,7 @@
           <span class="text-xs text-text-soft ml-2">Template Simples</span>
         </div>
         <div class="bg-black overflow-hidden" style="aspect-ratio: 16/9;">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
+          <video autoplay loop muted playsinline disablepictureinpicture class="w-full h-full object-cover">
             <source src="videos/simples.mp4" type="video/mp4">
           </video>
         </div>
@@ -813,7 +820,7 @@
           <span class="text-xs text-text-soft ml-2">Bounce</span>
         </div>
         <div class="bg-black overflow-hidden" style="height:180px;">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
+          <video autoplay loop muted playsinline disablepictureinpicture class="w-full h-full object-cover">
             <source src="videos/bounce.mp4" type="video/mp4">
           </video>
         </div>
@@ -837,7 +844,7 @@
           <span class="text-xs text-text-soft ml-2">Cinematic</span>
         </div>
         <div class="bg-black overflow-hidden" style="height:180px;">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
+          <video autoplay loop muted playsinline disablepictureinpicture class="w-full h-full object-cover">
             <source src="videos/cinematic.mp4" type="video/mp4">
           </video>
         </div>
@@ -861,7 +868,7 @@
           <span class="text-xs text-text-soft ml-2">Flicker</span>
         </div>
         <div class="bg-black overflow-hidden" style="height:180px;">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
+          <video autoplay loop muted playsinline disablepictureinpicture class="w-full h-full object-cover">
             <source src="videos/flicker.mp4" type="video/mp4">
           </video>
         </div>
@@ -885,7 +892,7 @@
           <span class="text-xs text-text-soft ml-2">Glitch</span>
         </div>
         <div class="bg-black overflow-hidden" style="height:180px;">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
+          <video autoplay loop muted playsinline disablepictureinpicture class="w-full h-full object-cover">
             <source src="videos/glitch.mp4" type="video/mp4">
           </video>
         </div>
@@ -909,7 +916,7 @@
           <span class="text-xs text-text-soft ml-2">Simples</span>
         </div>
         <div class="bg-black overflow-hidden" style="height:180px;">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
+          <video autoplay loop muted playsinline disablepictureinpicture class="w-full h-full object-cover">
             <source src="videos/simples.mp4" type="video/mp4">
           </video>
         </div>
@@ -933,7 +940,7 @@
           <span class="text-xs text-text-soft ml-2">Typewriting</span>
         </div>
         <div class="bg-black overflow-hidden" style="height:180px;">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
+          <video autoplay loop muted playsinline disablepictureinpicture class="w-full h-full object-cover">
             <source src="videos/typewriting.mp4" type="video/mp4">
           </video>
         </div>
@@ -1083,6 +1090,7 @@
               loop
               muted
               playsinline
+              disablepictureinpicture
               class="h-full w-full object-cover"
               style="max-height: 600px;"
             >
@@ -1464,6 +1472,21 @@
     window.addEventListener('resize', layout);
     layout();
   })();
+
+  // ---- AUTOPLAY FORÇADO EM TODOS OS VÍDEOS ----
+  // Garante play mesmo em browsers que bloqueiam autoplay fora do viewport
+  const allVideos = document.querySelectorAll('video');
+  allVideos.forEach(v => {
+    v.muted = true;
+    v.loop  = true;
+    v.play().catch(() => {});
+  });
+  const vidObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.play().catch(() => {});
+    });
+  }, { threshold: 0.1 });
+  allVideos.forEach(v => vidObserver.observe(v));
 
   // ---- RE-TRIGGER DEMO ANIMATIONS ON SCROLL ----
   const demoEls = document.querySelectorAll('.demo-slide, .demo-fade, .demo-scale');
