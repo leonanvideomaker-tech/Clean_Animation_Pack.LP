@@ -454,6 +454,12 @@
     .tsl-card { width: 33.333%; }
   }
 
+  /* Equaliza altura de todos os cards ao maior */
+  #tslTrack { align-items: stretch; }
+  .tsl-card { display: flex; flex-direction: column; }
+  .tsl-inner { flex: 1; display: flex; flex-direction: column; }
+  .tsl-inner .apple-card { flex: 1; }
+
   /* inner card: recebe a transformação de escala */
   .tsl-inner {
     transition: transform 0.45s cubic-bezier(0.23, 0.86, 0.39, 0.96),
