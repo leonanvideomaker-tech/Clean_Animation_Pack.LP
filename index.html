@@ -514,6 +514,11 @@
     #tslTrack .tsl-card:hover .tsl-inner { transform: none !important; opacity: 1 !important; }
   }
 
+  /* Botão full-width: texto menor no mobile para não cortar */
+  @media (max-width: 767px) {
+    .btn-primary.w-full .btn-label { font-size: 0.85rem; }
+  }
+
   /* ---- TABLET (768–1023px) ---- */
   @media (min-width: 768px) and (max-width: 1023px) {
     .card-stack-wrapper { max-width: 380px; }
@@ -1417,7 +1422,9 @@
     function maxIndex() { return Math.max(0, TOTAL - getVisible()); }
 
     function go(idx) {
-      current = Math.max(0, Math.min(idx, maxIndex()));
+      const max = maxIndex();
+      // loop infinito: volta ao início ao passar do último, e vice-versa
+      current = max > 0 ? ((idx % (max + 1)) + (max + 1)) % (max + 1) : 0;
       const pct = current * (100 / getVisible());
       track.style.transform = `translateX(-${pct}%)`;
     }
@@ -1426,10 +1433,10 @@
       document.querySelectorAll('.tsl-card').forEach(c => {
         c.style.width = (100 / getVisible()) + '%';
       });
-      go(Math.min(current, maxIndex()));
+      go(current);
     }
 
-    // touch swipe (mobile)
+    // touch swipe (mobile) + drag mouse (desktop)
     let tStartX = 0;
     track.addEventListener('touchstart', e => { tStartX = e.touches[0].clientX; }, { passive: true });
     track.addEventListener('touchend', e => {
