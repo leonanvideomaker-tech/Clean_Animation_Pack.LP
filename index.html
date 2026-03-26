@@ -482,6 +482,44 @@
     background: rgba(0,0,0,0.85);
     border-top: 1px solid rgba(255,255,255,0.08);
   }
+
+  /* ---- RESPONSIVE: MOBILE ---- */
+  @media (max-width: 767px) {
+    /* Reduce hero shapes so they don't overflow */
+    .shape-1 { width: 260px; height: 64px; left: -4%; }
+    .shape-2 { width: 200px; height: 52px; right: 0; }
+    .shape-3 { width: 130px; height: 36px; }
+    .shape-4, .shape-5 { display: none; }
+    .hero-glow { width: 320px; height: 320px; }
+
+    /* Card stack: full width on small screens */
+    .card-stack-wrapper { width: calc(100vw - 3rem); max-width: 340px; }
+
+    /* Extra bottom padding so content isn't hidden behind mobile nav */
+    footer { padding-bottom: 6rem !important; }
+
+    /* Offer video on mobile: don't force too much height when stacked */
+    .offer-vid-wrap { min-height: 280px !important; max-height: 380px; }
+    .offer-vid-wrap video { max-height: 380px; }
+
+    /* Hero headline: slight clamp on very small screens */
+    h1 { font-size: clamp(2rem, 12vw, 3rem) !important; }
+
+    /* Prevent btn-primary from being too wide on mobile */
+    .btn-primary { width: 100%; justify-content: center; }
+    .flex.flex-col.sm\:flex-row .btn-primary { width: auto; }
+  }
+
+  /* Testimonial hover effect only on devices with real hover (desktop mouse) */
+  @media (hover: none) {
+    #tslTrack:hover .tsl-inner { transform: none !important; opacity: 1 !important; }
+    #tslTrack .tsl-card:hover .tsl-inner { transform: none !important; opacity: 1 !important; position: static; z-index: auto; }
+  }
+
+  /* ---- RESPONSIVE: TABLET (768-1023px) ---- */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .card-stack-wrapper { max-width: 380px; }
+  }
 </style>
 </head>
 
@@ -602,21 +640,19 @@
 
         <!-- ESQUERDA: texto -->
         <div class="flex-1 reveal">
-          <h2 class="text-3xl md:text-4xl font-bold tracking-tight leading-snug mb-10">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight leading-snug mb-8">
             Você já assistiu um vídeo simples e pensou<br/>
             <span class="text-primary italic">"como ele fez isso parecer tão caro?"</span>
           </h2>
-          <div class="space-y-6 text-lg text-text-dim leading-relaxed">
-            <p>Não era uma produção de agência. Não tinha câmera cara, iluminação profissional nem equipe. Era um vídeo simples — igual ao seu.</p>
-            <p>A diferença? As animações. Enquanto o vídeo dele tinha textos que entravam com elegância, timing preciso e um visual que passava autoridade — o seu tinha o mesmo título parado, sem movimento, sem personalidade.</p>
-            <p>E você sabe disso. Porque você passou 40 minutos tentando criar uma animação no Premiere — ajustando opacidade, mexendo em curvas, errando, desfazendo — e o resultado ainda parecia amador.</p>
-            <p class="text-white font-semibold">Uma animação elegante não é detalhe. É o que separa um vídeo que parece caro de um vídeo que parece que foi editado em 2018.</p>
-            <p>E agora existe um jeito de ter isso em 30 segundos.</p>
+          <div class="space-y-5 text-lg text-text-dim leading-relaxed">
+            <p>Não era agência, câmera cara nem equipe. Era um vídeo simples — igual ao seu. A diferença? As animações.</p>
+            <p>Enquanto o vídeo dele tinha textos que entravam com elegância e timing preciso, o seu tinha o mesmo título parado, sem movimento, sem personalidade.</p>
+            <p class="text-white font-semibold">Uma animação elegante não é detalhe. É o que separa um vídeo que parece caro de um que parece que foi editado em 2018. E agora existe um jeito de ter isso em 30 segundos.</p>
           </div>
         </div>
 
         <!-- DIREITA: vídeo vertical -->
-        <div class="flex-shrink-0 reveal" style="width:260px;">
+        <div class="flex-shrink-0 w-full max-w-[260px] mx-auto md:max-w-none md:w-[360px] md:mx-0 reveal">
           <div class="mockup-frame" style="border-radius:1.25rem;overflow:hidden;">
             <div class="mockup-bar">
               <div class="dot bg-[#ff5f56]"></div>
@@ -1038,7 +1074,7 @@
         <div class="flex flex-col md:flex-row">
 
           <!-- LADO ESQUERDO: Vídeo vertical -->
-          <div class="md:w-[340px] flex-shrink-0 bg-black flex items-center justify-center overflow-hidden" style="min-height: 480px;">
+          <div class="offer-vid-wrap md:w-[340px] flex-shrink-0 bg-black flex items-center justify-center overflow-hidden" style="min-height: 480px;">
             <video
               autoplay
               loop
@@ -1065,15 +1101,11 @@
               </li>
               <li class="flex items-center gap-3 text-sm font-medium">
                 <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1;">check_circle</span>
-                Bônus: Guia de Tipografia para Vídeo
-              </li>
-              <li class="flex items-center gap-3 text-sm font-medium">
-                <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1;">check_circle</span>
-                Bônus: Paleta de Cores Clean Pack
-              </li>
-              <li class="flex items-center gap-3 text-sm font-medium">
-                <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1;">check_circle</span>
                 Tutorial de instalação em vídeo
+              </li>
+              <li class="flex items-center gap-3 text-sm font-medium">
+                <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                Suporte via Hotmart
               </li>
               <li class="flex items-center gap-3 text-sm font-medium">
                 <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1;">check_circle</span>
