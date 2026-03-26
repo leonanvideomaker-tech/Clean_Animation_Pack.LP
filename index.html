@@ -978,8 +978,8 @@
       <!-- slider container -->
       <div class="relative reveal">
 
-        <!-- track wrapper: overflow visible para os cards escalarem além das bordas -->
-        <div style="overflow:visible;" id="tslWrap">
+        <!-- track wrapper -->
+        <div id="tslWrap" style="overflow:hidden;">
           <div class="flex transition-transform duration-500 ease-[cubic-bezier(0.23,0.86,0.39,0.96)]" id="tslTrack" style="will-change:transform;" id="tslTrackHover">
 
             <!-- card 1: Tico -->
@@ -1407,9 +1407,10 @@
     });
   });
 
-  // ======== TESTIMONIAL SLIDER (mobile swipe only) ========
+  // ======== TESTIMONIAL SLIDER ========
   (function() {
     const track = document.getElementById('tslTrack');
+    const wrap  = document.getElementById('tslWrap');
     const TOTAL = 3;
     let current = 0;
 
@@ -1423,20 +1424,23 @@
 
     function go(idx) {
       const max = maxIndex();
-      // loop infinito: volta ao início ao passar do último, e vice-versa
-      current = max > 0 ? ((idx % (max + 1)) + (max + 1)) % (max + 1) : 0;
-      const pct = current * (100 / getVisible());
-      track.style.transform = `translateX(-${pct}%)`;
+      if (max === 0) { current = 0; track.style.transform = 'translateX(0)'; return; }
+      // loop infinito
+      current = ((idx % (max + 1)) + (max + 1)) % (max + 1);
+      const cardPx = wrap.offsetWidth / getVisible();
+      track.style.transform = `translateX(-${current * cardPx}px)`;
     }
 
     function layout() {
+      const cardPx = wrap.offsetWidth / getVisible();
       document.querySelectorAll('.tsl-card').forEach(c => {
-        c.style.width = (100 / getVisible()) + '%';
+        c.style.width = cardPx + 'px';
+        c.style.flexShrink = '0';
       });
       go(current);
     }
 
-    // touch swipe (mobile) + drag mouse (desktop)
+    // swipe touch
     let tStartX = 0;
     track.addEventListener('touchstart', e => { tStartX = e.touches[0].clientX; }, { passive: true });
     track.addEventListener('touchend', e => {
