@@ -1681,11 +1681,9 @@
       'Giovanna K.','Nícolas J.','Rebeca W.','Samuel X.','Yasmin Z.'
     ];
 
-    // Intervalos em ms: 5, 10, 8, 3, 9 segundos (em loop)
-    const delays = [5000, 10000, 8000, 3000, 9000];
-    let delayIdx = 0;
     let userCity = '';
     let usedIdxs = [];
+    const startTime = Date.now();
 
     // Busca cidade via cascata HTTPS
     async function fetchCity() {
@@ -1702,6 +1700,10 @@
         } catch(e) {}
       }
       return '';
+    }
+
+    function randBetween(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
     function pickName() {
@@ -1724,20 +1726,29 @@
 
       toast.classList.add('sp-show');
 
-      // Esconde após 4s
       setTimeout(() => {
         toast.classList.remove('sp-show');
-        // agenda próximo
-        delayIdx = (delayIdx + 1) % delays.length;
-        setTimeout(showToast, delays[delayIdx]);
+        scheduleNext();
       }, 4000);
     }
 
-    // Inicia: busca cidade, depois agenda primeiro toast
+    function scheduleNext() {
+      const elapsed = Date.now() - startTime;
+      let delay;
+      if (elapsed < 60000) {
+        // Primeiros 60s: intervalo aleatório entre 8s e 18s
+        delay = randBetween(8000, 18000);
+      } else {
+        // Após 60s: 1 notificação por minuto, em tempo aleatório dentro do minuto
+        delay = randBetween(20000, 55000);
+      }
+      setTimeout(showToast, delay);
+    }
+
+    // Inicia: busca cidade, depois agenda primeiro toast (entre 4s e 12s)
     fetchCity().then(city => {
       userCity = city;
-      const firstDelay = delays[delayIdx];
-      setTimeout(showToast, firstDelay);
+      setTimeout(showToast, randBetween(4000, 12000));
     });
   })();
 
