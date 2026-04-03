@@ -1729,13 +1729,13 @@
 
       toast.classList.add('sp-show');
 
-      // Esconde após 2.5s
+      // Esconde após 4s
       setTimeout(() => {
         toast.classList.remove('sp-show');
         // agenda próximo
         delayIdx = (delayIdx + 1) % delays.length;
         setTimeout(showToast, delays[delayIdx]);
-      }, 2500);
+      }, 4000);
     }
 
     // Inicia: busca cidade, depois agenda primeiro toast
